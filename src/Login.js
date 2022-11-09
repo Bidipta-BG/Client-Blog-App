@@ -26,9 +26,9 @@ const Login = (props) => {
               // console.log(response);
               if (response.status === true) {
               // console.log(response.id)
-                props.setData(response.id)
+                // props.setData(response.id)
               localStorage.setItem("userId",JSON.stringify(response.id))
-                navigate("/profile")
+                navigate("/")
 
               } else {
                 alert(response.message)
@@ -46,7 +46,7 @@ const Login = (props) => {
 
   function submitAction(e) {
     e.preventDefault()
-    props.setIsLogin(true)
+    // props.setIsLogin(true)
   }
 
 

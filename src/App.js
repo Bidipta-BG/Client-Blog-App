@@ -19,20 +19,20 @@ import {
 
 const App = () => {
 
-  const [transfer, setTransfer] = useState('')
-  const [islogin, setIsLogin] = useState()
+  // const [transfer, setTransfer] = useState('')
+  // const [islogin, setIsLogin] = useState()
 
   return (
       <div>
       {/* {console.log(transfer)} */}
         
         <Router>
-              <Navigationbar transferLogin={islogin} />
+              <Navigationbar />
               <Routes>
                   <Route path="/" element={<Feed />} />
-                  <Route path="/login" element={<Login setData={setTransfer} islogin={setIsLogin}/>} />
+                  <Route path="/login" element={<Login />} />
                   <Route path="/register" element={<Register />} />
-                  <Route  path="/profile" element={<Profile transferData={transfer}/>} />
+                  <Route  path="/profile" element={<Profile />} />
                   <Route path="/create" element={<Createblog />} />
             </Routes>
 

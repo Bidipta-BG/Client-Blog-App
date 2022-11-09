@@ -7,20 +7,18 @@ id = JSON.parse(id)
 
 
 
-function Profile(props){
-  // let id = localStorage.getItem("user")
+function Profile(){
+  
+  useEffect(()=>{setUserId(id)},[])
   useEffect(() => { document.title = 'Your Blogs' }, [])
-
   useEffect(() => { getBlogsById() }, [])
 
+  const [userId,setUserId] = useState("")
   const [data, setData] = useState([])
 
-  let id = props.transferData
   async function getBlogsById() {
     console.log('id= ', id)
-    // console.log('first= ' + props.transferData)
-    let url = `http://localhost:4000/blogsById?authorId=${id}`
-    
+    let url = `http://localhost:4000/blogs?authorId=${id}`
     console.log(url);
     let alldata = await fetch(url)
     alldata = await alldata.json()
