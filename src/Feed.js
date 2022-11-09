@@ -34,7 +34,7 @@ function Feed(){
 
 
                                 <div className="d-flex justify-content-between card-header">
-                                    <p>{ele.authorId.fname + ' ' + ele.authorId.lname} <br /><div className='bg-secondary bg-gradient'>{ele.category}</div></p>
+                                    <p>{ele.authorId.fname + ' ' + ele.authorId.lname} <br /><div className="btn btn-outline-info me-3">{ele.category}</div></p>
                                     <h5>{ele.title} </h5>
                                     <p>{ele.publishedAt.slice(0,10)}</p>
                                 </div>

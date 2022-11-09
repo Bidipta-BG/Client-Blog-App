@@ -69,10 +69,10 @@ const Login = (props) => {
                       value={password}
                       onChange={(e)=>setPassword(e.target.value)}/>
                   </div>
-                  <div className="mb-3 form-check">
+                  {/* <div className="mb-3 form-check">
                       <input type="checkbox" className="form-check-input" id="exampleCheck1" />
                           <label className="form-check-label" for="exampleCheck1">Check me out</label>
-                  </div>
+                  </div> */}
                   <button onClick={submitButton} type="submit" className="btn btn-primary">Submit</button>
               </form>
            </div>

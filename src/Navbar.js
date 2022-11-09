@@ -28,9 +28,9 @@ function Navigationbar() {
                                 {id ? <Link onClick={login} className="nav-link" to="/profile">Profile</Link> : ''}
                                 
                             </li>
-                            {/* <li className="nav-item">
-                                <Link className="nav-link" to="/create">Create Blog</Link>
-                            </li> */}
+                            <li className="nav-item">
+                                {id?< Link onClick={login} className="nav-link" to="/create">Create Blog</Link>:''}
+                            </li>
                            
                         </ul>
 

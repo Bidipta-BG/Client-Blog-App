@@ -14,12 +14,13 @@ import {
     Route,
     Link
 } from "react-router-dom";
+import UpdateBlog from './UpdateBlog';
 
 
 
 const App = () => {
 
-  // const [transfer, setTransfer] = useState('')
+  const [transfer, setTransfer] = useState()
   // const [islogin, setIsLogin] = useState()
 
   return (
@@ -32,8 +33,9 @@ const App = () => {
                   <Route path="/" element={<Feed />} />
                   <Route path="/login" element={<Login />} />
                   <Route path="/register" element={<Register />} />
-                  <Route  path="/profile" element={<Profile />} />
+                  <Route  path="/profile"   element={<Profile data={setTransfer}  />   } />
                   <Route path="/create" element={<Createblog />} />
+                  <Route path="/update" element={<UpdateBlog data={transfer} />} />
             </Routes>
 
         </Router>
