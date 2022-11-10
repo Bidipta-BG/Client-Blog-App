@@ -35,19 +35,39 @@ function Profile(props){
     localStorage.setItem("updateBlogId",JSON.stringify(document._id))
     props.data(document)
     navigate("/update")
-
+  }
+  async function deleteBlog(id){
+    console.log(id);
+    let url = `http://localhost:4000/blogs/${id}`
+    await fetch(url, {
+      method: 'delete',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-type': 'application/json'
+      }
+    })
+      .then(res => res.json()
+        .then((response) => {
+          console.log(response);
+          if (response.status === true) {
+            alert(response.message)
+            getBlogsById()
+          } else {
+            alert(response.message);
+          }
+        }))
   }
 
     return(
         <div>
         <div className="container">
           <div className="row">
-            <div className="col-2">
+            {/* <div className="col-2">
               <Filter title="Tags" />
               <Filter title="Category" />
               <Filter title="Sub-Category" />
             </div>
-            <div className="col-10">
+            <div className="col-10"> */}
 
             {data.length == 0 ? 
             
@@ -70,7 +90,7 @@ function Profile(props){
                     <div className="card-body">
                       <h5 className="card-title">{ele.body}</h5>
                       <button onClick={()=>{update(ele)}} type="button" className="btn btn-warning me-3">Update</button>
-                      <button type="button" className="btn btn-danger">Delete</button>
+                      <button onClick={() => { deleteBlog(ele._id) }} type="button" className="btn btn-danger">Delete</button>
                     </div>
                   </div>
                 </div>
@@ -78,7 +98,7 @@ function Profile(props){
              }
               
 
-            </div>
+            {/* </div> */}
           </div>
         </div>
 

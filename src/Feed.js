@@ -19,14 +19,14 @@ function Feed(){
         
             <div className="container">
               <div className="row">
-                  <div className="col-2">
+                  {/* <div className="col-2">
                       <Filter  title="Tags"/>
                       <Filter title = "Category"/>
                       <Filter title="Sub-Category" />
                   </div>
 
                 {console.log(blogs)}
-                    <div className="col-10">
+                    <div className="col-10"> */}
 
                     {blogs.map(ele => 
                         <div className='mt-4'>
@@ -46,7 +46,7 @@ function Feed(){
                             </div>
                         </div>
                         )}
-                    </div>
+                    {/* </div> */}
                 
                 
                   

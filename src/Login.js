@@ -23,12 +23,12 @@ const Login = (props) => {
         })
           .then(res => res.json()
             .then((response) => {
-              // console.log(response);
+              console.log(response);
               if (response.status === true) {
               // console.log(response.id)
                 // props.setData(response.id)
               localStorage.setItem("userId",JSON.stringify(response.id))
-                navigate("/")
+                navigate("/profile")
 
               } else {
                 alert(response.message)

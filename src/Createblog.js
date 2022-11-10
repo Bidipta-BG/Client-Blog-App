@@ -14,16 +14,20 @@ const Createblog = () => {
     let navigate = useNavigate()
 
     const submit = async ()=>{
+        let id = await localStorage.getItem("userId")
+        let authorId = JSON.parse(id)
+        let data = { authorId, title, body, tags, category, subCategory }
+        console.log(data)
          fetch("http://localhost:4000/blogs",{
             method:'post',
-            body:JSON.stringify(title,body,tags,category,subCategory),
+            body:JSON.stringify(data),
             headers:{
                 'Content-type' : 'application/json'
             }  
         })
         .then(res => res.json()
         .then((response) => {
-            // console.log(response);
+            console.log(response);
             if (response.status === true) {
                 // console.log(response)
                 alert(response.message)
@@ -60,7 +64,8 @@ function submitAction(x){
                       </div>
                       <div className="mt-3">
                           <label for="exampleFormControlTextarea1" className="form-label">Body</label>
-                          <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                          <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"
+                              value={body} onChange={(e) => setBody(e.target.value)}></textarea>
                       </div>
                       <div className="mt-4">
                           <label className="form-label">Tags</label>
@@ -71,13 +76,14 @@ function submitAction(x){
                           <label for="exampleFormControlTextarea1" className="form-label">Choose a Category</label>
                           <select className="form-select form-select-sm" aria-label=".form-select-sm example"
                           value={category} onChange={(e)=>setCategory(e.target.value)}>
-                              <option value="1">Technology</option>
-                              <option value="2">Sci-Fi</option>
-                              <option value="3">Entertainment</option>
-                              <option value="4">Political</option>
-                              <option value="5">Social</option>
-                              <option value="6">Environment</option>
-                              <option value="7">International</option>
+                              <option value="">Select.....</option>
+                              <option value="Technology">Technology</option>
+                              <option value="Sci-Fi">Sci-Fi</option>
+                              <option value="Entertainment">Entertainment</option>
+                              <option value="Political">Political</option>
+                              <option value="Social">Social</option>
+                              <option value="Environment">Environment</option>
+                              <option value="International">International</option>
                           </select>
                       </div>
                       <div className="mt-4">
